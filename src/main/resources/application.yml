@@ -1,9 +1,11 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/demo
-    driver-class-name: org.postgresql.Driver
-    username: demo
-    password: demo
-  jpa:
-    hibernate:
-      ddl-auto: validate
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/demo
+#    driver-class-name: org.postgresql.Driver
+#    username: demo
+#    password: demo
+#  jpa:
+#    hibernate:
+#      ddl-auto: validate
+server:
+  port: 8081

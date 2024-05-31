@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     echo "Running Docker container..."
-                    sh "docker stop ${DOCKER_IMAGE} || true && docker rm ${DOCKER_IMAGE}"
+                    sh "docker stop ${DOCKER_IMAGE} || true && docker rm ${DOCKER_IMAGE} || true"
                     sh "docker run -d --name ${DOCKER_IMAGE} -p 8081:8081 ${DOCKER_IMAGE}"
                 }
             }

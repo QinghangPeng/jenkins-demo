@@ -25,3 +25,22 @@ These additional references should also help you:
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 * [Declarative REST calls with Spring Cloud OpenFeign sample](https://github.com/spring-cloud-samples/feign-eureka)
 
+### Config Jenkins and connect to local Jenkins through intranet penetration
+* Install docker jenkins
+```shell
+docker run -d --user root -p 9090:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins:jdk17
+```
+* Install docker to jenkins container
+```shell
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+or
+curl -fsSL https://get.docker.com -o get-docker.sh | sh
+```
+* Install plugins for jenkins: Pipeline / Stage View
+* Intranet penetration: Use natapp or ngrok
+* Config webhook for project on github: Settings -> Webhooks -> Add webhook
+* Generate token for Jenkins on github: My Profile -> Settings -> Developer Settings -> Personal access tokens -> Tokens(classic) -> Generate New Token(classic)
+* Config token for Jenkins to connect to Github: Manage Jenkins -> System -> Github Servers -> add Credentials -> type choose Secret text
+* Add new Item(pipeline item type) on Jenkins: New Item -> input item name -> choose Pipeline item type
+* Set up configurations: Github project -> Build Triggers -> Pipeline(choose Pipeline script from SCM)
